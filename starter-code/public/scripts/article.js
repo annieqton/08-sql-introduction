@@ -38,14 +38,14 @@ Article.loadAll = function(rows) {
 Article.fetchAll = function(callback) {
   $.get('/articles/all').then(function(results) {
     if (results.rows.length) { // If records exist in the DB
-      // TODO: Call loadAll, and pass in the results, then invoke the callback.
+      // DONE: Call loadAll, and pass in the results, then invoke the callback.
       console.log('Apparent records exist in DB');
       Article.loadAll(results.rows);
       callback();
       console.log(results.rows.length);
 
     } else { // if NO records exist in the DB
-      // TODO: Make an ajax call to get the json
+      // DONE: Make an ajax call to get the json
       // THEN() iterate over the results, and create a new Article object for each.
       $.getJSON('data/hackerIpsum.json').then(function(rawData) {
         console.log('This in the ELSE');

@@ -49,9 +49,9 @@ app.post('/articles/insert', function(request, response) {
   client.connect(function(err) {  // connect client
     if (err) console.error(err);
 
-    // TODO: Write the SQL query to insert a new record
+    // DONE: Write the SQL query to insert a new record
     client.query (`INSERT INTO articles(id PRIMARY KEY, title, author, "authorUrl", category, "publishedOn", body) VALUES($1, $2, $3, $4, $5, $6)`, // query client
-    // TODO: Get each value from the request's body . see line 46 console.log above to see what is inside the body
+    // DONE: Get each value from the request's body . see line 46 console.log above to see what is inside the body
       [
         request.body.title,
         request.body.author,
@@ -75,10 +75,10 @@ app.put('/articles/update', function(request, response) {
   client.connect(function(err) {
     if (err) console.error(err);
 
-    // TODO: Write the SQL query to update an existing record
+    // DONE: Write the SQL query to update an existing record
     client.query(`UPDATE articles(id PRIMARY KEY, title, author, "authorUrl", category, "publishedOn", body) SET (title = 'title', author = 'author', "authorUrl" = '"authorUrl"', category = 'category', "publishedOn" = '"publishedOn"', body = 'body') WHERE (id = 'id')`),
 
-      // TODO: Get each value from the request's body
+      // DONE: Get each value from the request's body
       [
         request.body.title,
         request.body.author,
@@ -101,7 +101,7 @@ app.delete('/articles/delete', function(request, response) {
   client.connect(function(err) {
     if (err) console.error(err);
 
-    // TODO: Write the SQL query to delete a record
+    // DONE: Write the SQL query to delete a record
     client.query(`DELETE FROM articles WHERE (id = 'id')`),
       function(err) {
         if (err) console.error(err);
@@ -117,7 +117,7 @@ app.delete('/articles/truncate', function(request, response) {
   client.connect(function(err) {
     if (err) console.error(err);
 
-    // TODO: Write the SQl query to truncate the table
+    // DONE: Write the SQl query to truncate the table
     client.query('TRUNCATE TABLE articles'),
       function(err) {
         if (err) console.error(err);
